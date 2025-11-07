@@ -1,149 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alexander Fujita | Resume</title>
-  <style>
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      margin: 0;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #004aad;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      margin: 0.5rem 0;
-      font-size: 1rem;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #004aad;
-      border-bottom: 2px solid #004aad;
-      padding-bottom: 0.3rem;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .contact a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .skills ul, .activities ul, .experience ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #004aad;
-      color: #fff;
-      margin-top: 2rem;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alexander Fujita — Resume</title>
+  <meta name="description" content="Résumé and portfolio site for Alexander Fujita, student leader and aspiring professional based in Pearl City, HI.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta property="og:title" content="Alexander Fujita — Resume">
+  <meta property="og:description" content="Student leader, MUN delegate, principal trombone, and entrepreneur.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/af-logo.svg">
+  <meta name="theme-color" content="#0b0f1a">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-
-  <header>
-    <h1>Alexander Fujita</h1>
-    <p>2242 Apoepoe St., Pearl City, HI 96782</p>
-    <p>📞 (808) 679-2624 | ✉️ <a href="mailto:fujitaalex01@gmail.com">fujitaalex01@gmail.com</a></p>
+  <header class="header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="#top">
+        <img src="assets/af-logo.svg" alt="AF logo">
+        <span>Alexander Fujita</span>
+      </a>
+      <span class="spacer"></span>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#activities">Activities</a>
+      <a href="#awards">Awards</a>
+    </nav>
   </header>
 
-  <section>
-    <h2>Objective</h2>
-    <p>Motivated and responsible high school student seeking a part-time position, internship, or volunteer opportunity to develop professional skills and contribute to a positive team environment. Eager to apply strong communication, problem-solving, and teamwork abilities with a commitment to excellence.</p>
-  </section>
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="card">
+        <h1>Alexander Fujita</h1>
+        <p class="sub">Pearl City, HI • <a href="tel:+18086792624">(808) 679-2624</a> • <a href="mailto:fujitaalex01@gmail.com">fujitaalex01@gmail.com</a></p>
+        <blockquote class="callout">
+          Motivated and responsible high school student seeking a part-time role, internship, or volunteer opportunity to build professional experience. Strong communicator with leadership, problem-solving, and teamwork skills.
+        </blockquote>
+        <div class="kv">
+          <span class="pill">Leadership</span>
+          <span class="pill">Communication</span>
+          <span class="pill">Time Management</span>
+          <span class="pill">Strategic Planning</span>
+          <span class="pill">Teamwork</span>
+        </div>
+      </div>
+      <aside class="card">
+        <div class="info">
+          <div><strong>Email:</strong> <a href="mailto:fujitaalex01@gmail.com">fujitaalex01@gmail.com</a></div>
+          <div><strong>Phone:</strong> <a href="tel:+18086792624">(808) 679-2624</a></div>
+          <div><strong>Location:</strong> Pearl City, HI</div>
+          <div><strong>Download:</strong> <a href="#" onclick="window.print()">Print / Save as PDF</a></div>
+        </div>
+      </aside>
+    </section>
 
-  <section>
-    <h2>Education</h2>
-    <p><strong>Hanalani Schools</strong> — Mililani, Hawaii</p>
-    <p><em>Expected Graduation:</em> May 2028</p>
-    <p><strong>GPA:</strong> 3.77</p>
-    <p><strong>Relevant Courses:</strong> AI and Digital Marketing, Leadership</p>
-  </section>
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="grid">
+        <div class="item card">
+          <h3>Hanalani Schools — Mililani, HI</h3>
+          <div class="meta">Expected Graduation: May 2028 • GPA: 3.77</div>
+          <div>Relevant Coursework: AI & Digital Marketing, Leadership</div>
+        </div>
+      </div>
+    </section>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Proficient in Google Workspace (Docs, Sheets, Slides, Drive)</li>
-      <li>Strong written and verbal communication skills</li>
-      <li>Excellent time management and organizational abilities</li>
-      <li>Leadership and strategic planning experience</li>
-      <li>Works effectively both independently and in team settings</li>
-    </ul>
-  </section>
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="card">
+        <div class="badges">
+          <span class="badge">Google Docs</span>
+          <span class="badge">Google Sheets</span>
+          <span class="badge">Google Slides</span>
+          <span class="badge">Google Drive</span>
+          <span class="badge">Written & Verbal Communication</span>
+          <span class="badge">Time Management</span>
+          <span class="badge">Organization</span>
+          <span class="badge">Leadership</span>
+          <span class="badge">Strategic Planning</span>
+          <span class="badge">Independent & Team Work</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="experience">
-    <h2>Experience</h2>
-    <p><strong>Pacific Floor Covering</strong> — Assistant (Family Business)</p>
-    <ul>
-      <li>Supported daily business operations and customer service</li>
-      <li>Assisted in creating client contact lists and managing emails</li>
-    </ul>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="grid two">
+        <div class="item card">
+          <h3>Pacific Floor Covering — Assistant</h3>
+          <div class="meta">Pearl City, HI</div>
+          <ul>
+            <li>Supported daily business operations and customer communication.</li>
+            <li>Created client contact lists and helped manage email outreach.</li>
+          </ul>
+        </div>
+        <div class="item card">
+          <h3>Pacific Power Washing — Owner / Operator</h3>
+          <div class="meta">Pearl City, HI</div>
+          <ul>
+            <li>Founded and managed a summer power washing business.</li>
+            <li>Provided cleaning services for homes and apartment complexes.</li>
+            <li>Handled scheduling, customer communication, and payments.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <p><strong>Pacific Power Washing</strong> — Owner / Operator</p>
-    <ul>
-      <li>Founded and managed a summer power washing business</li>
-      <li>Provided professional cleaning services for homes and apartment complexes</li>
-      <li>Handled scheduling, customer communication, and payments</li>
-    </ul>
-  </section>
+    <section id="activities" class="section">
+      <h2>Extracurricular Activities</h2>
+      <div class="grid two">
+        <div class="item card">
+          <h3>Band</h3>
+          <div class="meta">Principal Trombone (4 years) • Lower Brass Section Leader (3 years)</div>
+        </div>
+        <div class="item card">
+          <h3>Music Club</h3>
+          <div class="meta">President (2 years)</div>
+        </div>
+        <div class="item card">
+          <h3>Model United Nations</h3>
+          <div class="meta">Delegate (3 conferences) • Staff Member (1 conference)</div>
+        </div>
+        <div class="item card">
+          <h3>Theatre</h3>
+          <div class="meta">Lighting Design Team Member</div>
+        </div>
+        <div class="item card">
+          <h3>Leadership</h3>
+          <div class="meta">Sophomore Class Officer</div>
+        </div>
+      </div>
+    </section>
 
-  <section class="activities">
-    <h2>Extracurricular Activities</h2>
-    <ul>
-      <li><strong>Band:</strong> Principal Trombone (4 years); Lower Brass Section Leader (3 years)</li>
-      <li><strong>Model United Nations (MUN):</strong> Delegate in 3 conferences; Staff Member in 1 conference</li>
-      <li><strong>Theatre:</strong> Lighting Design Team Member</li>
-      <li><strong>Leadership:</strong> Sophomore Class Officer</li>
-    </ul>
-  </section>
+    <section id="awards" class="section">
+      <h2>Awards & Honors</h2>
+      <div class="grid">
+        <div class="item card">
+          <h3>Outstanding Delegate — Model United Nations</h3>
+          <div class="meta">2025</div>
+        </div>
+        <div class="item card">
+          <h3>Royal Merit Scholarship — Hanalani Schools</h3>
+        </div>
+      </div>
+    </section>
 
-  <section class="awards">
-    <h2>Awards and Honors</h2>
-    <ul>
-      <li><strong>Outstanding Delegate</strong> — Model United Nations (2025)</li>
-      <li><strong>Royal Merit Scholarship</strong> — Hanalani Schools</li>
-    </ul>
-  </section>
+    <footer class="footer">
+      © <span data-year></span> Alexander Fujita • Pearl City, HI
+    </footer>
+  </main>
 
-  <footer>
-    <p>© 2025 Alexander Fujita | Designed by Alexander Fujita</p>
-  </footer>
-
+  <script src="assets/script.js" defer></script>
 </body>
 </html>
