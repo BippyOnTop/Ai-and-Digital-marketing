@@ -1,426 +1,149 @@
-<!-- file: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Spend a Billionaire's Money!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexander Fujita | Resume</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f4f8;
+      font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #004aad;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #004aad;
+      border-bottom: 2px solid #004aad;
+      padding-bottom: 0.3rem;
+    }
+
+    ul {
+      list-style-type: none;
       padding: 0;
     }
-    header {
-      background: #2176ae;
-      color: white;
-      padding: 20px;
-      text-align: center;
+
+    li {
+      margin-bottom: 0.5rem;
     }
-    #tabs {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0 0 0;
-    }
-    .tab {
-      background: #e0e7ef;
-      color: #2176ae;
-      border: none;
-      border-radius: 10px 10px 0 0;
-      padding: 10px 30px;
-      margin: 0 2px;
-      font-size: 1.1em;
-      cursor: pointer;
-      outline: none;
-      transition: background 0.2s;
-    }
-    .tab.active {
-      background: #2176ae;
-      color: white;
+
+    .contact a {
+      color: #fff;
+      text-decoration: none;
       font-weight: bold;
     }
-    #reset-btn {
-      background: #ffb703;
-      color: #333;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 20px;
-      font-size: 1em;
-      margin: 10px 0 0 0;
-      cursor: pointer;
-      transition: background 0.2s;
+
+    .skills ul, .activities ul, .experience ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
     }
-    #reset-btn:hover {
-      background: #ffd166;
-    }
-    #money {
-      font-size: 1.5em;
-      margin: 10px 0;
-    }
-    #items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 20px;
-    }
-    .item {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px #0001;
-      margin: 10px;
-      padding: 15px;
-      width: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: box-shadow 0.2s;
-    }
-    .item:hover {
-      box-shadow: 0 4px 16px #0002;
-    }
-    .icon {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2em;
-    }
-    .name {
-      font-weight: bold;
-      margin-bottom: 5px;
+
+    footer {
       text-align: center;
-    }
-    .price {
-      color: #2176ae;
-      margin-bottom: 10px;
-    }
-    .controls {
-      display: flex;
-      align-items: center;
-      margin-bottom: 5px;
-    }
-    .controls button {
-      width: 30px;
-      height: 30px;
-      font-size: 1.2em;
-      margin: 0 5px;
-      border: none;
-      border-radius: 5px;
-      background: #2176ae;
-      color: white;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .controls button:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-    .count-input {
-      font-size: 1.2em;
-      width: 50px;
-      text-align: center;
-      margin: 0 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 2px 4px;
-    }
-    #summary {
-      background: #fffbe6;
-      border: 1px solid #ffe066;
-      border-radius: 8px;
-      margin: 20px auto;
-      padding: 15px;
-      width: 90%;
-      max-width: 600px;
-      text-align: center;
-      font-size: 1.1em;
-    }
-    @media (max-width: 700px) {
-      .item { width: 95vw; }
+      padding: 1rem;
+      background-color: #004aad;
+      color: #fff;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Spend a Billionaire's Money!</h1>
-    <div id="tabs">
-      <button class="tab active" id="tab-gates">Bill Gates</button>
-      <button class="tab" id="tab-musk">Elon Musk</button>
-    </div>
-    <div id="money"></div>
-    <div>
-      Click + or - or type a number to buy or sell items.<br>
-      Try to spend all their money!
-    </div>
-    <button id="reset-btn">Reset</button>
+    <h1>Alexander Fujita</h1>
+    <p>2242 Apoepoe St., Pearl City, HI 96782</p>
+    <p>📞 (808) 679-2624 | ✉️ <a href="mailto:fujitaalex01@gmail.com">fujitaalex01@gmail.com</a></p>
   </header>
-  <div id="summary"></div>
-  <div id="items"></div>
-  <script>
-    // Billionaires' data
-    const billionaires = [
-      {
-        name: "Bill Gates",
-        money: 120_000_000_000
-      },
-      {
-        name: "Elon Musk",
-        money: 210_000_000_000
-      }
-    ];
 
-    // 100 items, from cheap to expensive
-    const items = [
-      { name: "Pack of Gum", price: 1, icon: "⬛" },
-      { name: "Pencil", price: 2, icon: "✏️" },
-      { name: "Candy Bar", price: 3, icon: "🍫" },
-      { name: "Bottle of Water", price: 5, icon: "💧" },
-      { name: "Notebook", price: 7, icon: "📒" },
-      { name: "Socks (pair)", price: 10, icon: "🧦" },
-      { name: "Coffee", price: 15, icon: "☕" },
-      { name: "Movie Ticket", price: 20, icon: "🎬" },
-      { name: "Burger", price: 25, icon: "🍔" },
-      { name: "T-shirt", price: 30, icon: "👕" },
-      { name: "Book", price: 40, icon: "📚" },
-      { name: "Board Game", price: 50, icon: "🎲" },
-      { name: "Pizza", price: 60, icon: "🍕" },
-      { name: "Headphones", price: 80, icon: "🎧" },
-      { name: "Backpack", price: 100, icon: "🎒" },
-      { name: "Sneakers", price: 120, icon: "👟" },
-      { name: "Video Game", price: 150, icon: "🎮" },
-      { name: "Bluetooth Speaker", price: 200, icon: "🔊" },
-      { name: "Smart Watch", price: 250, icon: "⌚" },
-      { name: "Tablet", price: 300, icon: "📱" },
-      { name: "Bicycle", price: 400, icon: "🚲" },
-      { name: "Smartphone", price: 800, icon: "📱" },
-      { name: "Gaming Console", price: 500, icon: "🕹️" },
-      { name: "Drone", price: 1000, icon: "🛸" },
-      { name: "Electric Scooter", price: 1200, icon: "🛴" },
-      { name: "Laptop", price: 1500, icon: "💻" },
-      { name: "Dog", price: 2000, icon: "🐶" },
-      { name: "Cat", price: 1500, icon: "🐱" },
-      { name: "Mountain Bike", price: 2500, icon: "🚵" },
-      { name: "Vacation (1 week)", price: 3000, icon: "🏖️" },
-      { name: "Big TV", price: 4000, icon: "📺" },
-      { name: "Hot Tub", price: 6000, icon: "🛁" },
-      { name: "Diamond Ring", price: 8000, icon: "💍" },
-      { name: "Used Car", price: 10_000, icon: "🚗" },
-      { name: "Motorcycle", price: 15_000, icon: "🏍️" },
-      { name: "Wedding", price: 20_000, icon: "💒" },
-      { name: "Tiny House", price: 30_000, icon: "🏠" },
-      { name: "Speed Boat", price: 50_000, icon: "🚤" },
-      { name: "College Tuition (1 year)", price: 60_000, icon: "🎓" },
-      { name: "Camper Van", price: 70_000, icon: "🚐" },
-      { name: "Sports Car", price: 100_000, icon: "🏎️" },
-      { name: "Race Horse", price: 150_000, icon: "🐎" },
-      { name: "Luxury Watch", price: 200_000, icon: "⌚" },
-      { name: "Private Chef (1 year)", price: 250_000, icon: "👨‍🍳" },
-      { name: "Yacht", price: 500_000, icon: "🛥️" },
-      { name: "Private Jet", price: 2_000_000, icon: "✈️" },
-      { name: "Mansion", price: 5_000_000, icon: "🏰" },
-      { name: "Island", price: 10_000_000, icon: "🏝️" },
-      { name: "NBA Team", price: 2_000_000_000, icon: "🏀" },
-      { name: "NFL Team", price: 3_000_000_000, icon: "🏈" },
-      { name: "NHL Team", price: 1_000_000_000, icon: "🏒" },
-      { name: "MLB Team", price: 2_000_000_000, icon: "⚾" },
-      { name: "Space Flight", price: 55_000_000, icon: "🚀" },
-      { name: "Super Bowl Stadium", price: 1_500_000_000, icon: "🏟️" },
-      { name: "Movie Studio", price: 500_000_000, icon: "🎥" },
-      { name: "Theme Park", price: 1_000_000_000, icon: "🎡" },
-      { name: "Art Museum", price: 300_000_000, icon: "🖼️" },
-      { name: "Luxury Submarine", price: 80_000_000, icon: "🚢" },
-      { name: "Private Island Resort", price: 200_000_000, icon: "🏝️" },
-      { name: "Skyscraper", price: 1_200_000_000, icon: "🏙️" },
-      { name: "Space Station Module", price: 150_000_000, icon: "🛰️" },
-      { name: "Fighter Jet", price: 100_000_000, icon: "🛩️" },
-      { name: "Luxury Train", price: 50_000_000, icon: "🚄" },
-      { name: "Football Stadium", price: 1_000_000_000, icon: "🏟️" },
-      { name: "Opera House", price: 400_000_000, icon: "🎭" },
-      { name: "Luxury Yacht", price: 300_000_000, icon: "🛥️" },
-      { name: "Space Telescope", price: 500_000_000, icon: "🔭" },
-      { name: "Nuclear Submarine", price: 3_000_000_000, icon: "🚢" },
-      { name: "Aircraft Carrier", price: 13_000_000_000, icon: "🚢" },
-      { name: "Mars Rover", price: 2_500_000_000, icon: "🤖" },
-      { name: "Luxury Jetliner", price: 400_000_000, icon: "✈️" },
-      { name: "Space Shuttle", price: 1_700_000_000, icon: "🚀" },
-      { name: "Luxury Cruise Ship", price: 900_000_000, icon: "🚢" },
-      { name: "F1 Team", price: 700_000_000, icon: "🏁" },
-      { name: "Luxury Hotel", price: 600_000_000, icon: "🏨" },
-      { name: "Diamond Mine", price: 1_000_000_000, icon: "💎" },
-      { name: "Gold Mine", price: 1_200_000_000, icon: "🏆" },
-      { name: "Oil Rig", price: 650_000_000, icon: "🛢️" },
-      { name: "SpaceX Rocket Launch", price: 62_000_000, icon: "🚀" },
-      { name: "Luxury Mansion", price: 250_000_000, icon: "🏰" },
-      { name: "Luxury Car Collection", price: 100_000_000, icon: "🚗" },
-      { name: "Private Zoo", price: 300_000_000, icon: "🦁" },
-      { name: "Luxury Golf Course", price: 150_000_000, icon: "⛳" },
-      { name: "Luxury Shopping Mall", price: 500_000_000, icon: "🏬" },
-      { name: "Luxury Resort", price: 350_000_000, icon: "🏝️" },
-      { name: "Luxury Jet", price: 70_000_000, icon: "✈️" },
-      { name: "Luxury Helicopter", price: 40_000_000, icon: "🚁" },
-      { name: "Luxury Apartment", price: 80_000_000, icon: "🏢" },
-      { name: "Luxury Vineyard", price: 100_000_000, icon: "🍇" },
-      { name: "Luxury Ranch", price: 200_000_000, icon: "🏜️" },
-      { name: "Luxury Island", price: 500_000_000, icon: "🏝️" },
-      { name: "Luxury Castle", price: 400_000_000, icon: "🏰" },
-      { name: "Luxury Art Collection", price: 250_000_000, icon: "🖼️" },
-      { name: "Luxury Yacht Club", price: 150_000_000, icon: "🛥️" },
-      { name: "Luxury Space Hotel", price: 1_000_000_000, icon: "🏨" },
-      { name: "Luxury Football Club", price: 2_000_000_000, icon: "⚽" },
-      { name: "Luxury Space Colony", price: 10_000_000_000, icon: "🪐" },
-      { name: "Luxury Moon Base", price: 50_000_000_000, icon: "🌕" },
-      { name: "Luxury Mars Base", price: 100_000_000_000, icon: "🚀" }
-    ];
+  <section>
+    <h2>Objective</h2>
+    <p>Motivated and responsible high school student seeking a part-time position, internship, or volunteer opportunity to develop professional skills and contribute to a positive team environment. Eager to apply strong communication, problem-solving, and teamwork abilities with a commitment to excellence.</p>
+  </section>
 
-    // Track how many of each item is bought for each billionaire
-    let counts = [
-      Array(items.length).fill(0), // Bill Gates
-      Array(items.length).fill(0)  // Elon Musk
-    ];
+  <section>
+    <h2>Education</h2>
+    <p><strong>Hanalani Schools</strong> — Mililani, Hawaii</p>
+    <p><em>Expected Graduation:</em> May 2028</p>
+    <p><strong>GPA:</strong> 3.77</p>
+    <p><strong>Relevant Courses:</strong> AI and Digital Marketing, Leadership</p>
+  </section>
 
-    // Which billionaire is active? 0 = Gates, 1 = Musk
-    let activeTab = 0;
+  <section class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Proficient in Google Workspace (Docs, Sheets, Slides, Drive)</li>
+      <li>Strong written and verbal communication skills</li>
+      <li>Excellent time management and organizational abilities</li>
+      <li>Leadership and strategic planning experience</li>
+      <li>Works effectively both independently and in team settings</li>
+    </ul>
+  </section>
 
-    // Format money
-    function formatMoney(n) {
-      return "$" + n.toLocaleString();
-    }
+  <section class="experience">
+    <h2>Experience</h2>
+    <p><strong>Pacific Floor Covering</strong> — Assistant (Family Business)</p>
+    <ul>
+      <li>Supported daily business operations and customer service</li>
+      <li>Assisted in creating client contact lists and managing emails</li>
+    </ul>
 
-    // Calculate total spent for current billionaire
-    function totalSpent() {
-      let sum = 0;
-      for (let i = 0; i < items.length; i++) {
-        sum += items[i].price * counts[activeTab][i];
-      }
-      return sum;
-    }
+    <p><strong>Pacific Power Washing</strong> — Owner / Operator</p>
+    <ul>
+      <li>Founded and managed a summer power washing business</li>
+      <li>Provided professional cleaning services for homes and apartment complexes</li>
+      <li>Handled scheduling, customer communication, and payments</li>
+    </ul>
+  </section>
 
-    // Calculate the max you can buy of an item, given current counts and money left
-    function maxCanBuy(index) {
-      const spent = totalSpent();
-      const left = billionaires[activeTab].money - spent + (counts[activeTab][index] * items[index].price);
-      return Math.floor(left / items[index].price);
-    }
+  <section class="activities">
+    <h2>Extracurricular Activities</h2>
+    <ul>
+      <li><strong>Band:</strong> Principal Trombone (4 years); Lower Brass Section Leader (3 years)</li>
+      <li><strong>Model United Nations (MUN):</strong> Delegate in 3 conferences; Staff Member in 1 conference</li>
+      <li><strong>Theatre:</strong> Lighting Design Team Member</li>
+      <li><strong>Leadership:</strong> Sophomore Class Officer</li>
+    </ul>
+  </section>
 
-    // Update money display and button states
-    function updateMoney() {
-      const spent = totalSpent();
-      const left = billionaires[activeTab].money - spent;
-      document.getElementById('money').textContent =
-        billionaires[activeTab].name + "'s Money Left: " + formatMoney(left) +
-        " | Spent: " + formatMoney(spent);
-      let summary = "";
-      if (left === 0) {
-        summary = "Wow! You spent ALL of " + billionaires[activeTab].name + "'s money!";
-      } else if (spent === 0) {
-        summary = "Start spending! What will you buy first?";
-      } else if (left < billionaires[activeTab].money * 0.01) {
-        summary = "You're almost out of money!";
-      } else {
-        summary = "Keep spending! Try to use it all!";
-      }
-      document.getElementById('summary').textContent = summary;
+  <section class="awards">
+    <h2>Awards and Honors</h2>
+    <ul>
+      <li><strong>Outstanding Delegate</strong> — Model United Nations (2025)</li>
+      <li><strong>Royal Merit Scholarship</strong> — Hanalani Schools</li>
+    </ul>
+  </section>
 
-      // Update button states and input values
-      for (let i = 0; i < items.length; i++) {
-        const plusBtn = document.getElementById(`plus${i}`);
-        const minusBtn = document.getElementById(`minus${i}`);
-        const input = document.getElementById(`input${i}`);
-        // Disable plus if not enough money left
-        if (billionaires[activeTab].money - totalSpent() < items[i].price) {
-          plusBtn.disabled = true;
-        } else {
-          plusBtn.disabled = false;
-        }
-        // Disable minus if count is 0
-        if (counts[activeTab][i] === 0) {
-          minusBtn.disabled = true;
-        } else {
-          minusBtn.disabled = false;
-        }
-        // Set input value
-        input.value = counts[activeTab][i];
-        // Set input min/max
-        input.min = 0;
-        input.max = maxCanBuy(i);
-      }
-    }
+  <footer>
+    <p>© 2025 Alexander Fujita | Designed by Alexander Fujita</p>
+  </footer>
 
-    // Render items
-    function renderItems() {
-      const itemsDiv = document.getElementById('items');
-      itemsDiv.innerHTML = "";
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        const div = document.createElement('div');
-        div.className = "item";
-        div.innerHTML = `
-          <div class="icon">${item.icon}</div>
-          <div class="name">${item.name}</div>
-          <div class="price">${formatMoney(item.price)}</div>
-          <div class="controls">
-            <button id="minus${i}">-</button>
-            <input type="number" class="count-input" id="input${i}" value="0" min="0" step="1">
-            <button id="plus${i}">+</button>
-          </div>
-        `;
-        itemsDiv.appendChild(div);
-
-        // Add event listeners
-        document.getElementById(`minus${i}`).onclick = () => {
-          if (counts[activeTab][i] > 0) {
-            counts[activeTab][i]--;
-            updateMoney();
-          }
-        };
-        document.getElementById(`plus${i}`).onclick = () => {
-          const spent = totalSpent();
-          const left = billionaires[activeTab].money - spent;
-          if (left >= item.price) {
-            counts[activeTab][i]++;
-            updateMoney();
-          }
-        };
-        document.getElementById(`input${i}`).oninput = (e) => {
-          let val = parseInt(e.target.value);
-          if (isNaN(val) || val < 0) val = 0;
-          // Calculate max possible for this item
-          let max = maxCanBuy(i);
-          if (val > max) val = max;
-          counts[activeTab][i] = val;
-          updateMoney();
-        };
-      }
-    }
-
-    // Tab switching
-    document.getElementById('tab-gates').onclick = function() {
-      activeTab = 0;
-      document.getElementById('tab-gates').classList.add('active');
-      document.getElementById('tab-musk').classList.remove('active');
-      renderItems();
-      updateMoney();
-    };
-    document.getElementById('tab-musk').onclick = function() {
-      activeTab = 1;
-      document.getElementById('tab-musk').classList.add('active');
-      document.getElementById('tab-gates').classList.remove('active');
-      renderItems();
-      updateMoney();
-    };
-
-    // Reset button
-    document.getElementById('reset-btn').onclick = function() {
-      counts[activeTab] = Array(items.length).fill(0);
-      renderItems();
-      updateMoney();
-    };
-
-    // Initial render
-    renderItems();
-    updateMoney();
-  </script>
 </body>
 </html>
