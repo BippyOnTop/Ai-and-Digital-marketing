@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PokerStack</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+    margin: 0;
+    padding: 20px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .card {
+    background: #1e1e1e;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+  button {
+    background: #4caf50;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 4px;
+  }
+  button.red {
+    background: #e53935;
+  }
+  input, select {
+    padding: 6px;
+    margin: 5px 0;
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>🃏 PokerStack</h1>
+
+<div id="setup">
+  <h2>Game Setup</h2>
+  <label>Number of Players</label>
+  <select id="playerCount" onchange="buildPlayerInputs()">
+    <option>2</option><option>3</option><option>4</option>
+    <option>5</option><option>6</option>
+  </select>
+
+  <div id="players"></div>
+
+  <label>Starting Chips</label>
+  <input type="number" id="startingChips" value="1000">
+
+  <label>Small Blind</label>
+  <input type="number" id="smallBlind" value="10">
+
+  <label>Big Blind</label>
+  <input type="number" id="bigBlind" value="20">
+
+  <button onclick="startGame()">Start Game</button>
+</div>
+
+<div id="game" style="display:none;">
+  <h2>Pot: <span id="pot">0</span></h2>
+  <p id="blinds"></p>
+
+  <div id="playerList"></div>
+
+  <button onclick="finishRound()">Finish Round</button>
+  <button onclick="showAI()">AI Dealer Assistant</button>
+</div>
+
+<script>
+let players = [];
+let pot = 0;
+let dealer = 0;
+let sb = 0;
+let bb = 1;
+
+function buildPlayerInputs() {
+  const count = document.getElementById("playerCount").value;
+  const container = document.getElementById("players");
+  container.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    container.innerHTML += `
+      <input placeholder="Player ${i + 1} name">
+    `;
+  }
+}
+
+buildPlayerInputs();
+
+function startGame() {
+  const names = document.querySelectorAll("#players input");
+  const chips = Number(document.getElementById("startingChips").value);
+  players = [];
+
+  names.forEach((n, i) => {
+    players.push({
+      id: i,
+      name: n.value || `Player ${i + 1}`,
+      chips: chips,
+      bet: 0,
+      folded: false
+    });
+  });
+
+  document.getElementById("setup").style.display = "none";
+  document.getElementById("game").style.display = "block";
+  render();
+}
+
+function render() {
+  document.getElementById("pot").innerText = pot;
+  document.getElementById("blinds").innerText =
+    `SB: ${players[(dealer+1)%players.length].name} | BB: ${players[(dealer+2)%players.length].name}`;
+
+  const list = document.getElementById("playerList");
+  list.innerHTML = "";
+
+  players.forEach(p => {
+    list.innerHTML += `
+      <div class="card">
+        <div class="row">
+          <strong>${p.name}</strong>
+          <span>Chips: ${p.chips}</span>
+        </div>
+        <div>Bet: ${p.bet}</div>
+        <input type="range" min="0" max="${p.chips}" value="0"
+          oninput="this.nextElementSibling.innerText=this.value">
+        <span>0</span>
+        <br>
+        <button onclick="bet(${p.id}, this.previousElementSibling.previousElementSibling.value)">Bet</button>
+        <button class="red" onclick="fold(${p.id})">Fold</button>
+      </div>
+    `;
+  });
+}
+
+function bet(id, amount) {
+  amount = Number(amount);
+  const p = players[id];
+  if (amount > p.chips) return;
+  p.chips -= amount;
+  p.bet += amount;
+  pot += amount;
+  render();
+}
+
+function fold(id) {
+  players[id].folded = true;
+  render();
+}
+
+function finishRound() {
+  let winner = prompt(
+    "Enter winner name:\n" + players.map(p => p.name).join(", ")
+  );
+  let p = players.find(pl => pl.name === winner);
+  if (!p) return alert("Invalid player");
+  p.chips += pot;
+  pot = 0;
+
+  players.forEach(pl => {
+    pl.bet = 0;
+    pl.folded = false;
+  });
+
+  dealer = (dealer + 1) % players.length;
+  render();
+}
+
+function showAI() {
+  alert(
+    "AI Dealer Assistant:\n\n" +
+    "• Fold when your hand is weak\n" +
+    "• Call to match the highest bet\n" +
+    "• Raise to apply pressure\n" +
+    "• Blinds rotate every round\n" +
+    "• Manage your chip stack"
+  );
+}
+</script>
+
+</body>
+</html>
